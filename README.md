@@ -1,5 +1,9 @@
 # StackOverflow Revamped
 
+[![CircleCI](https://circleci.com/gh/maxwellgithinji/StackOverflowRevamped-API.svg?style=svg)](https://circleci.com/gh/maxwellgithinji/StackOverflowRevamped-API) [![Maintainability](https://api.codeclimate.com/v1/badges/268fb5d7657799bf9836/maintainability)](https://codeclimate.com/github/maxwellgithinji/StackOverflowRevamped-API/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/268fb5d7657799bf9836/test_coverage)](https://codeclimate.com/github/maxwellgithinji/StackOverflowRevamped-API/test_coverage)
+
+
+
 * ### StackOverflowRevamped is a platform where people can ask questions and provide answers. 
 
 ## Required Features
