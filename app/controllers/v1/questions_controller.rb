@@ -5,7 +5,7 @@ module V1
     # GET /questions
     def index
       #get questions from all users
-      @questions = current_user.questions
+      @questions = Question.all.order(updated_at: :desc)
       json_response(@questions)
     end
 
@@ -23,13 +23,13 @@ module V1
 
     # PATCH/PUT /questions/1
     def update
-      @question.update(question_params)
+      author_verification(current_user, @question, "update")
       head :no_content
     end
 
     # DELETE /questions/1
     def destroy
-      @question.destroy
+      author_verification(current_user, @question, "delete")
       head :no_content
     end
 
@@ -43,5 +43,18 @@ module V1
       def question_params
         params.permit(:body)
       end
+
+    # Only enble authors to edit or delete questions
+    def author_verification (current_user, question, action)
+      unless current_user.id == question.created_by.to_i
+        return
+      end
+      if action == "update"
+        question.update(question_params)
+      else
+        question.destroy
+      end
+    end
+
   end
 end
